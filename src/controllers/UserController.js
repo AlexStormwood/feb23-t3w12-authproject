@@ -1,5 +1,6 @@
 // import Express library
 const express = require('express');
+const { User } = require('../models/UserModel');
 
 // make an instance of a Router
 const router = express.Router();
@@ -28,7 +29,9 @@ const router = express.Router();
 	]
 */
 router.get("/", async (request, response) => {
+	let result = await User.find({});
 
+	response.json({result});
 })
 
 // GET localhost:3000/users/laijhjsdaljfdhbsal
@@ -38,7 +41,9 @@ router.get("/:id", async (request, response) => {
 
 // POST localhost:3000/users/
 router.post("/", async (request, response) => {
+	let newUser = await User.create(request.body).catch(error => error);
 
+	response.json(newUser);
 })
 
 // POST localhost:3000/users/login
