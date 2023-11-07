@@ -13,12 +13,10 @@ function generateJwt(userId){
 
 	let newJwt = jwt.sign(
 		// Payload
-		{
-			userId
-		}, 
+		{userId}, 
 
 		// Secret key for server-only verification
-		"insert secret key here",
+		process.env.JWT_KEY,
 
 		// Options
 		{

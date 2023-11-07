@@ -37,7 +37,9 @@ router.get("/", async (request, response) => {
 
 // GET localhost:3000/users/laijhjsdaljfdhbsal
 router.get("/:id", async (request, response) => {
+	let result = await User.findOne({_id: request.params.id});
 
+	response.json({result});
 })
 
 // POST localhost:3000/users/
