@@ -5,7 +5,8 @@ const app = express();
 
 const cors = require('cors');
 const corsOptions = {
-	origin: ["http://localhost:3000", "https://someDeployedWebsite.com"],
+	//			frontend localhost,  frontend deployed
+	origin: ["http://localhost:3000/","http://localhost:3000", "https://someDeployedWebsite.com"],
 	optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
